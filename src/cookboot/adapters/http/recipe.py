@@ -11,8 +11,15 @@ class RecipeResource:
         resp.content_type = fl.MEDIA_TEXT  # Default is JSON, so override
         resp.text = "Sweet stuff"
 
-    async def on_get_recipe(self, req: fl.Request, resp: fl.Response, recipe_id: str):
+    async def on_get_recipe(self, req: fl.Request, resp: fl.Response, recipe_id: str) -> Callable:
         """Handles GET requests"""
         resp.status = fl.HTTP_200  # This is the default status
         resp.content_type = fl.MEDIA_TEXT  # Default is JSON, so override
         resp.text = f"Salty stuff: {recipe_id}"
+
+    async def on_post(self, req: fl.Request, resp: fl.Response) -> Callable:
+        name: str = req.params["recipe_name"]
+        print("hello")
+
+        resp.status = fl.HTTP_200
+        resp.body = name

@@ -1,0 +1,4 @@
+[tool.pytest.ini_options]
+pythonpath = [".", "./src", "./src/cookboot"]
+testpaths = ["tests"]
+addopts = ["--import-mode=importlib"]

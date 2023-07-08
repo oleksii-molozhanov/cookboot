@@ -1,5 +1,5 @@
 import falcon.asgi
-from adapters.http.recipe import RecipeResource
+from cookboot.adapters.http.recipe import RecipeResource
 
 
 # Having this as a function simplifies testing

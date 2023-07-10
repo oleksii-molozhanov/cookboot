@@ -2,3 +2,11 @@
 pythonpath = [".", "./src", "./src/cookboot"]
 testpaths = ["tests"]
 addopts = ["--import-mode=importlib"]
+
+[tool.mypy]
+# python_version = "3.7"
+# warn_return_any = true
+
+[[tool.mypy.overrides]]
+module = ["tests.*"]
+ignore_errors = true

@@ -1,9 +1,10 @@
 import imp
-from typing import Protocol
+from typing import Protocol, runtime_checkable
 from cookboot.domain.recipe import Ingridient, Recipe
 from cookboot.domain.user import UserId
 
 
+@runtime_checkable
 class RecipeRepo(Protocol):
     """Interface for Recipe repository.
     Note: recipes are owned by users.

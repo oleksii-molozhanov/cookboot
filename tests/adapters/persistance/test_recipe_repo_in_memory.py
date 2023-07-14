@@ -32,7 +32,6 @@ def test_created_recipe_fills_the_data(repo: RecipeRepo, ingridients, user_id, n
     recipe = repo.create(name, ingridients, user_id)
 
     # then
-
     assert recipe.name == name
     assert recipe.ingridients == ingridients
     assert recipe.user_id == user_id
@@ -79,3 +78,9 @@ def test_same_name_recipe_can_be_created(repo: RecipeRepo, ingridients, user_id)
 
     # then
     assert recipe1 != recipe2
+
+
+def test_assignment() -> None:
+    repo = RecipeRepoInMemory()
+    assert isinstance(repo, RecipeRepo)
+    assert issubclass(RecipeRepoInMemory, RecipeRepo)

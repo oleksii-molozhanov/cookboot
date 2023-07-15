@@ -81,6 +81,5 @@ def test_same_name_recipe_can_be_created(repo: RecipeRepo, ingridients, user_id)
 
 
 def test_assignment() -> None:
-    repo = RecipeRepoInMemory()
-    assert isinstance(repo, RecipeRepo)
     assert issubclass(RecipeRepoInMemory, RecipeRepo)
+    assert isinstance(RecipeRepoInMemory(), RecipeRepo)

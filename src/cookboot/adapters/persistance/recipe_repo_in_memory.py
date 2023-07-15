@@ -1,3 +1,4 @@
+from typing import Union
 from cookboot.domain.recipe import Ingridient, Recipe, RecipeId
 from cookboot.domain.user import UserId
 from uuid import uuid4
@@ -11,13 +12,13 @@ class RecipeRepoInMemory:
         self._repo: dict[RecipeId, Recipe] = dict()
 
     def create(self, name: str, ingridients: list[Ingridient], user_id: UserId) -> Recipe:
-        id: RecipeId = str(uuid4())
+        id: RecipeId = RecipeId(str(uuid4()))
         recipe = Recipe(id, name, ingridients, user_id)
         self._repo[id] = recipe
 
         return recipe
 
-    def get(self, id: RecipeId, user_id: UserId) -> Recipe:
+    def get(self, id: RecipeId, user_id: UserId) -> Union[Recipe, None]:
         try:
             recipe = self._repo[id]
         except KeyError:
